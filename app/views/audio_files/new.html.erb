@@ -1,0 +1,20 @@
+<%= form_with model: @audio_file, local: true do |f| %>
+  <% if @audio_file.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @audio_file.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :song_file %>
+  <%= f.file_field :song_file %>
+
+  <%= f.label :song_title %>
+  <%= f.text_field :song_title %>
+
+  <%= f.submit "Upload song" %>
+<% end %>
