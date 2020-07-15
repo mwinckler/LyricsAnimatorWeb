@@ -1,24 +1,12 @@
-# README
+# Lyrics Animator Web Interface
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is designed as a web interface to the [Lyrics Animator](https://github.com/mwinckler/LyricsAnimator) utility.
 
-Things you may want to cover:
+To get this project running locally:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Clone this repo
+* Make sure you have Rails 6 installed
+* In the repository directory, run `bundle install`
+* Run `yarn install`
+* Run database migrations: `rails db:migrate`
+* Run `rails server`
