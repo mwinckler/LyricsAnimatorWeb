@@ -11,9 +11,15 @@
 
   <body>
     <div id="user_nav">
+        <h1>Welcome to Lyrics Animator Web!</h1>
       <% if current_user %>
         Logged in as <%= current_user.email %>.
         <%= link_to "Log out", log_out_path %>
+        <h3><strong>Upload a new audio file:</strong>
+        <%= link_to "Upload", new_audio_file_path %>
+        <h3><strong>See Your audio files:</strong>
+        <%= link_to "audio files", audio_files_path %>
+        <h3><strong>______________________________________</strong>
       <% else %>
         <%= link_to "Sign up", sign_up_path %> or
         <%= link_to "log in", log_in_path %>

@@ -1,0 +1,14 @@
+<h1>Your Audio Files</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+  </tr>
+    <% @audio_files.each do |audio_file| %>
+      <tr>
+        <td><%= audio_file.song_title %></td>
+        <td><%= link_to "Show/Edit", audio_file_path(audio_file) %></td>
+      </tr>
+    <% end %>
+</table>
