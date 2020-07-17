@@ -27,6 +27,14 @@ class AudioFilesController < ApplicationController
     end
   end
 
+def destroy
+  @audio_file = AudioFile.find(params[:id])
+  @audio_file.destroy
+
+  flash[:error] = "Deletion successful."
+  redirect_to audio_files_path
+end
+
   private
 
   def audio_file_params
