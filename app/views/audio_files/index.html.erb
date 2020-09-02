@@ -1,5 +1,5 @@
 <h1>Your Audio Files:</h1>
 
     <% @audio_files.each do |audio_file| %>
-        <ul><%= link_to "#{audio_file.song_title}", audio_file_path(audio_file) %></ul>
+        <ul><%= link_to audio_file.song_title, audio_file_path(audio_file) %></ul>
     <% end %>
