@@ -1,4 +1,8 @@
 class AudioFilesController < ApplicationController
+  def index
+    @audio_files = current_user.audio_files
+  end
+
   def new
     @audio_file = AudioFile.new
   end
