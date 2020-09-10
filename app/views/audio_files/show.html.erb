@@ -5,3 +5,8 @@
 <p>maybe it would be nice to have a textarea to enter lyrics here</p>
 
 <p>and perhaps a media player to play the audio file on the page</p>
+
+<%= link_to 'Edit', edit_audio_file_path(@audio_file) %>
+<%= link_to 'Delete', audio_file_path(@audio_file),
+        method: :delete,
+        data: { confirm: 'Do you want to delete this song?' } %>
