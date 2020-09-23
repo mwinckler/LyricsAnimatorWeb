@@ -10,23 +10,25 @@
   </head>
 
   <body>
-    <div id="user_nav">
-        <h1>Welcome to Lyrics Animator Web!</h1>
-      <% if current_user %>
-        Logged in as <%= current_user.email %>.
-        <%= link_to "Log out", log_out_path %>
-        <%= link_to "Upload a new audio file", new_audio_file_path %>
-        <%= link_to "View your audio files", audio_files_path %>
-      <% else %>
-        <%= link_to "Sign up", sign_up_path %> or
-        <%= link_to "log in", log_in_path %>
+    <div id="container" class="container app">
+      <div id="user_nav" class="container">
+          <h1>Welcome to Lyrics Animator Web!</h1>
+        <% if current_user %>
+          Logged in as <%= current_user.email %>.
+          <%= link_to "Log out", log_out_path %>
+          <%= link_to "Upload a new audio file", new_audio_file_path %>
+          <%= link_to "View your audio files", audio_files_path %>
+        <% else %>
+          <%= link_to "Sign up", sign_up_path %> or
+          <%= link_to "log in", log_in_path %>
+        <% end %>
+      </div>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
+
+      <%= yield %>
     </div>
-
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-
-    <%= yield %>
   </body>
 </html>
