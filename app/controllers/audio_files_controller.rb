@@ -7,6 +7,15 @@ class AudioFilesController < ApplicationController
     @audio_file = AudioFile.new
   end
 
+  def edit
+    @audio_file = AudioFile.find_by_id(params[:id])
+
+    if @audio_file.nil?
+      flash[:error] = "This Audio file no longer exists."
+      redirect_to audio_files_path
+    end
+  end
+
   def create
     @audio_file = AudioFile.new(audio_file_params)
     @audio_file.user = current_user
@@ -31,8 +40,25 @@ def destroy
   @audio_file = AudioFile.find(params[:id])
   @audio_file.destroy
 
+  if @audio_file.nil?
+    flash[:error] = "This Audio file no longer exists."
+    redirect_to audio_files_path
+  end
   flash[:error] = "Deletion successful."
   redirect_to audio_files_path
+end
+
+def update
+    @audio_file = AudioFile.find_by_id(params[:id])
+
+    if @audio_file.nil?
+      flash[:error] = "This Audio file no longer exists."
+      redirect_to audio_files_path
+    elsif @audio_file.update(audio_file_params)
+      redirect_to @audio_file
+    else
+      render 'edit'
+    end
 end
 
   private
